@@ -407,6 +407,33 @@ V2F32 center_i2f(I2F32 r);
 I1F32 axis(I2F32 r, Axis axis);
 
 // TODO: implement generic macros for operators using add(), subtract() notation
+#define add(a,b) _Generic((a), \
+    V2S32: add_v2s32, \
+    V2F32: add_v2f32, \
+    V3F32: add_v3f32, \
+    V4F32: add_v4f32, \
+    default: generic_stmt_err)(a,b)
+
+#define subtract(a,b) _Generic((a), \
+    V2S32: subtract_v2s32, \
+    V2F32: subtract_v2f32, \
+    V3F32: subtract_v3f32, \
+    V4F32: subtract_v4f32, \
+    default: generic_stmt_err)(a,b)
+
+#define multiply(a,b) _Generic((a), \
+    V2S32: multiply_v2s32_a1, \
+    V2F32: multiply_v2f32_a1, \
+    V3F32: multiply_v3f32_a1, \
+    V4F32: multiply_v4f32_a1, \
+    S32: multiply_v2s32_a2, \
+    F32: _Generic((b), \
+        V2F32: multiply_v2f32_a2, \
+        V3F32: multiply_v3f32_a2, \
+        V4F32: multiply_v4f32_a2, \
+        default: generic_stmt_err), \
+    default: generic_stmt_err)(a,b)
+
 
 // generic macro functions for the specific functions
 #define hadamard(a,b) _Generic((a), \
