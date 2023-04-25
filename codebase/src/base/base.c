@@ -4,6 +4,130 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+OperatingSystem operating_system_from_ctx(void) {
+    OperatingSystem r = OperatingSystem_Null;
+    #if OS_WINDOWS
+        r = OperatingSystem_Windows;
+    #elif OS_LINUX
+        r = OperatingSystem_Linux
+    #elif OS_MAC
+        r = OperatingSystem_Mac
+    #endif
+    return r;
+}
+
+char* string_from_operating_system(OperatingSystem os) {
+    char *r = "(null)";
+    switch(os) {
+        case OperatingSystem_Windows:
+        {
+            r = "windows";
+        }break;
+        case OperatingSystem_Linux:
+        {
+            r = "linux";
+        }break;
+        case OperatingSystem_Mac:
+        {
+            r = "mac";
+        }break;
+    }
+
+    return r;
+}
+
+char* string_from_month(Month month) {
+    char *r = "(null)";
+    switch(month) {
+        case Month_Jan: 
+        {
+            r = "jan";
+        }break;
+        case Month_Feb: 
+        {
+            r = "feb";
+        }break;
+        case Month_Mar: 
+        {
+            r = "mar";
+        }break;
+        case Month_Apr: 
+        {
+            r = "apr";
+        }break;
+        case Month_May: 
+        {
+            r = "may";
+        }break;
+        case Month_Jun: 
+        {
+            r = "jun";
+        }break;
+        case Month_Jul: 
+        {
+            r = "jul";
+        }break;
+        case Month_Aug: 
+        {
+            r = "aug";
+        }break;
+        case Month_Sep: 
+        {
+            r = "sep";
+        }break;
+        case Month_Oct: 
+        {
+            r = "oct";
+        }break;
+        case Month_Nov: 
+        {
+            r = "nov";
+        }break;
+        case Month_Dec: 
+        {
+            r = "dec";
+        }break;
+    }
+
+    return r;
+}
+
+char* string_from_day_of_week(DayOfWeek day_of_week) {
+    char *r = "(null)";
+    switch(day_of_week) {
+        case DayOfWeek_Sunday: 
+        {
+            r = "sunday";
+        }break;
+        case DayOfWeek_Monday: 
+        {
+            r = "monday";
+        }break;
+        case DayOfWeek_Tuesday: 
+        {
+            r = "tuesday";
+        }break;
+        case DayOfWeek_Wednesday: 
+        {
+            r = "wednesday";
+        }break;
+        case DayOfWeek_Thursday: 
+        {
+            r = "thursday";
+        }break;
+        case DayOfWeek_Friday: 
+        {
+            r = "friday";
+        }break;
+        case DayOfWeek_Saturday: 
+        {
+            r = "saturday";
+        }break;
+    }
+
+    return r;
+}
+
 F32 inf_F32(void) {
     union{ F32 f; U32 u; } r;
     r.u = 0x7f800000;

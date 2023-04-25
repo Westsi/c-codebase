@@ -217,6 +217,53 @@ typedef enum Axis {
     Axis_W,
 } Axis;
 
+typedef enum Side {
+    Side_Min,
+    Side_Max,
+} Side;
+
+typedef enum OperatingSystem {
+    OperatingSystem_Null,
+    OperatingSystem_Windows,
+    OperatingSystem_Linux,
+    OperatingSystem_Mac,
+    OperatingSystem_COUNT,
+} OperatingSystem;
+
+// typedef enum Architecture {
+//     Architecture_Null,
+//     Architecture_X64,
+//     Architecture_X86,
+//     Architecture_ARM,
+//     Architecture_AMR64,
+//     Architecture_COUNT,
+// } Architecture;
+
+typedef enum Month {
+    Month_Jan,
+    Month_Feb,
+    Month_Mar,
+    Month_Apr,
+    Month_May,
+    Month_Jun,
+    Month_Jul,
+    Month_Aug,
+    Month_Sep,
+    Month_Oct,
+    Month_Nov,
+    Month_Dec,
+} Month;
+
+typedef enum DayOfWeek {
+    DayOfWeek_Sunday,
+    DayOfWeek_Monday,
+    DayOfWeek_Tuesday,
+    DayOfWeek_Wednesday,
+    DayOfWeek_Thursday,
+    DayOfWeek_Friday,
+    DayOfWeek_Saturday,
+} DayOfWeek;
+
 #pragma endregion SYMCONST
 
 // Compound Types
@@ -316,8 +363,19 @@ typedef union I2F32 {
 
 #pragma endregion COMPTYPES
 
+// Symbolic Constant Functions
+#pragma region SYMCONSTFUNCS
+
+OperatingSystem operating_system_from_ctx(void);
+
+char* string_from_operating_system(OperatingSystem os);
+char* string_from_month(Month month);
+char* string_from_day_of_week(DayOfWeek day_of_week);
+
+#pragma endregion SYMCONSTFUNCS
+
 // math functions
-#pragma region MATHFUNC
+#pragma region MATHFUNCS
 F32 abs_F32(F32 x);
 F64 abs_F64(F64 x);
 
@@ -337,7 +395,7 @@ F32 lerp(F32 a, F32 t, F32 b);
 F32 unlerp(F32 a, F32 x, F32 b);
 
 
-#pragma endregion MATHFUNC
+#pragma endregion MATHFUNCS
 
 
 // Compound Type Functions
