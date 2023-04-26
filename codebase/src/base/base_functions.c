@@ -1,8 +1,6 @@
-/* date = 17 Apr 2023 11:46 */
+/* date = 26 Apr 2023 18:26 */
 
-#include "base.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "base_functions.h"
 
 OperatingSystem operating_system_from_ctx(void) {
     OperatingSystem r = OperatingSystem_Null;
@@ -126,30 +124,6 @@ char* string_from_day_of_week(DayOfWeek day_of_week) {
     }
 
     return r;
-}
-
-F32 inf_F32(void) {
-    union{ F32 f; U32 u; } r;
-    r.u = 0x7f800000;
-    return r.f;
-}
-
-F32 neg_inf_F32(void) {
-    union{ F32 f; U32 u; } r;
-    r.u = 0xff800000;
-    return r.f;
-}
-
-F64 inf_F64(void) {
-    union{ F64 f; U64 u; } r;
-    r.u = 0x7ff0000000000000;
-    return r.f;
-}
-
-F64 neg_inf_F64(void) {
-    union{ F64 f; U64 u; } r;
-    r.u = 0xfff0000000000000;
-    return r.f;
 }
 
 F32 abs_F32(F32 x) {
