@@ -2,38 +2,38 @@
 
 #ifndef BASE_CONSTANTS_H_
 #define BASE_CONSTANTS_H_
+#include "base_types.h"
 
 // Basic Constants
 #pragma region BASCONST
+extern S8 min_S8;
+extern S16 min_S16;
+extern S32 min_S32;
+extern S64 min_S64;
 
-S8 min_S8 = (S8) 0x80;
-S16 min_S16 = (S16) 0x8000;
-S32 min_S32 = (S32) 0x80000000;
-S64 min_S64 = (S64) 0x8000000000000000LL;
+extern S8 max_S8;
+extern S16 max_S16;
+extern S32 max_S32;
+extern S64 max_S64;
 
-S8 max_S8 = (S8) 0x7f;
-S16 max_S16 = (S16) 0x7fff;
-S32 max_S32 = (S32) 0x7fffffff;
-S64 max_S64 = (S64) 0x7fffffffffffffffLL ;
+extern U8 max_U8;
+extern U16 max_U16;
+extern U32 max_U32;
+extern U64 max_U64;
 
-U8 max_U8 = 0xff;
-U16 max_U16 = 0xffff;
-U32 max_U32 = 0xffffffff;
-U64 max_U64 = 0xffffffffffffffffllu;
+extern F32 machine_epsilon_F32;
+extern F32 pi_F32;
+extern F32 tau_F32;
+extern F32 e_F32;
+extern F32 gold_big_F32;
+extern F32 gold_small_F32;
 
-F32 machine_epsilon_F32 = 1.1920929e-7f;
-F32 pi_F32 = 3.14159265359f;
-F32 tau_F32 = 6.28318530718f;
-F32 e_F32 = 2.71828182846f;
-F32 gold_big_F32 = 1.61803398875f;
-F32 gold_small_F32 = 0.61803398875f;
-
-F64 machine_epsilon_F64 = 2.220446e-16;
-F64 pi_F64 = 3.14159265359;
-F64 tau_F64 = 6.28318530718;
-F64 e_F64 = 2.71828182846;
-F64 gold_big_F64 = 1.61803398875;
-F64 gold_small_F64 = 0.61803398875;
+extern F64 machine_epsilon_F64;
+extern F64 pi_F64;
+extern F64 tau_F64;
+extern F64 e_F64;
+extern F64 gold_big_F64;
+extern F64 gold_small_F64;
 
 // float constant functions for infinity b/c no other way to do it
 F32 inf_F32(void);

@@ -1,6 +1,8 @@
 /* date = 26 Apr 2023 18:26 */
 
 #include "base_functions.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 OperatingSystem operating_system_from_ctx(void) {
     OperatingSystem r = OperatingSystem_Null;

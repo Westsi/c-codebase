@@ -4,6 +4,7 @@
 #define BASE_FUNCTIONS_H_
 #include "base_types.h"
 #include "base_constants.h"
+#include <stdio.h>
 
 // Symbolic Constant Functions
 #pragma region SYMCONSTFUNCS
