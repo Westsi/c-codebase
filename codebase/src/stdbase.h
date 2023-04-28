@@ -8,4 +8,5 @@
 #include "base/base_ctxcracking.h"
 #include "base/base_functions.h"
 #include "base/base_types.h"
+#include "base/memory/memory.h"
 #endif //STDBASE_H

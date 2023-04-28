@@ -43,6 +43,14 @@
 #define ClampTop(a,b) Min(a,b)
 #define ClampBot(a,b) Max(a,b)
 
+#define AlignUpPow2(x,p) (((x) + (p) - 1)&~((p) - 1))
+#define AlignDownPow2(x,p) ((x)&~((p) - 1))
+
+#define KB(x) ((x) << 10)
+#define MB(x) ((x) << 20)
+#define GB(x) ((x) << 30)
+#define TB(x) ((x) << 40)
+
 #define global static
 #define local static
 #define private static
