@@ -67,3 +67,23 @@ void* m_arena_pop_to(M_Arena *arena, U64 pos) {
     }
 }
 
+
+void* m_arena_align(M_Arena *arena, U64 pow2_align) {
+    U64 p = arena->pos;
+    U64 p_aligned = AlignUpPow2(p, pow2_align);
+    U64 z = p_aligned - p;
+    if (z > 0) {
+        m_arena_push(arena, z);
+    }
+}
+
+
+M_Temp m_begin_temp(M_Arena *arena) {
+    M_Temp temp = {arena, arena->pos};
+    return temp;
+}
+
+void m_end_temp(M_Temp temp) {
+    m_arena_pop_to(temp.arena, temp.pos);
+}
+

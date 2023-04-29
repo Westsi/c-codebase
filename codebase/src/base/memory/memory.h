@@ -30,6 +30,11 @@ typedef struct M_Arena {
     U64 commit_pos;
 } M_Arena;
 
+typedef struct M_Temp {
+    M_Arena *arena;
+    U64 pos;
+} M_Temp;
+
 // Arena Functions
 
 #define M_DEFAULT_RESERVE_SIZE GB(1)
@@ -43,10 +48,18 @@ void m_arena_release(M_Arena *arena);
 void* m_arena_push(M_Arena *arena, U64 size);
 void* m_arena_pop_to(M_Arena *arena, U64 pos);
 
+void* m_arena_align(M_Arena *arena, U64 pow2_align);
+
 void* m_malloc_reserve(void *ctx, U64 size);
 
 void* m_malloc_release(void *ctx, void *ptr, U64 size);
 
 M_BaseMemory* m_malloc_base_memory(void);
+
+#define push_array(a,T,c) (T*)m_arena_push((a), sizeof(T)*(c))
+#define push_array_zero(a,T,c) (T*)m_arena_push_zero((a), sizeof(T)*(c))
+
+M_Temp m_begin_temp(M_Arena *arena);
+void m_end_temp(M_Temp temp);
 
 #endif //MEMORY_H

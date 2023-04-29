@@ -1,7 +1,7 @@
 /* date = 17 Apr 2023 11:46 */
 
-#ifndef BASE_H_
-#define BASE_H_
+#ifndef BASE_MACROS_H_
+#define BASE_MACROS_H_
 
 #if !defined(ENABLE_ASSERT)
 # define ENABLE_ASSERT 0
