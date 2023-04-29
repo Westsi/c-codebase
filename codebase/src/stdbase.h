@@ -9,4 +9,5 @@
 #include "base/base_functions.h"
 #include "base/base_types.h"
 #include "base/memory/memory.h"
+#include "base/string/base_string.h"
 #endif //STDBASE_H
